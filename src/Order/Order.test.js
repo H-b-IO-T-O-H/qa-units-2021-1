@@ -50,3 +50,4 @@ describe("Order.js", () => {
         expect(toJson(template)).toMatchSnapshot();
     });
 });
+
