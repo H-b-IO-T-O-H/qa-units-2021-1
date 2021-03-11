@@ -1,3 +1,4 @@
+[![Units CI](https://github.com/H-b-IO-T-O-H/qa-units-2021-1/actions/workflows/ci.yml/badge.svg)](https://github.com/H-b-IO-T-O-H/qa-units-2021-1/actions/workflows/ci.yml)
 ## Семинар №1 - Юнит-тесты на JS
 
 **Перед установкой убедитесь, что у вас установлены nvm и npm**
