@@ -1,5 +1,4 @@
-import React from "react"
-import {getSortFunction, sortByDate, sortByItemCount, sortOrders} from "./sortOrders";
+import {sortByDate, sortByItemCount, sortOrders} from "./sortOrders";
 import {fakeOrders} from "../data/fakeOrders";
 
 describe("sortByItemCount empty", () => {
@@ -59,20 +58,23 @@ describe("sortByDate filled", () => {
 });
 
 describe("sortOrders", () => {
+
     test("wrong order", () => {
         const mockSortFunc = jest.fn();
         sortOrders(undefined, mockSortFunc);
         expect(mockSortFunc).not.toHaveBeenCalled()
     });
+
     test("wrong comparator", () => {
         const mockSortFunc = jest.fn();
         sortOrders(fakeOrders, undefined);
         expect(mockSortFunc).not.toHaveBeenCalled()
     });
+
     test("correct answer", () => {
         const raiseComparator = (a, b) => a > b;
         const ordersId = [2, 3, 1, 4]
         sortOrders(ordersId, raiseComparator)
         expect(ordersId).toEqual([1, 2, 3, 4])
-    })
+    });
 });
