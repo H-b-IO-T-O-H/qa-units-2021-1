@@ -75,6 +75,7 @@ describe("sortOrders", () => {
         const raiseComparator = (a, b) => a > b;
         const ordersId = [2, 3, 1, 4]
         sortOrders(ordersId, raiseComparator)
+        console.log(ordersId)
         expect(ordersId).toEqual([1, 2, 3, 4])
     });
 });
