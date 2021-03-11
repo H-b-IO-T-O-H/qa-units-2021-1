@@ -27,7 +27,6 @@ describe("Order.js", () => {
 
     test("render without props", () => {
         const template = shallow(<Order/>);
-
         expect(toJson(template)).toMatchSnapshot();
     });
 
@@ -38,7 +37,6 @@ describe("Order.js", () => {
         }
 
         const template = shallow(<Order order={order}/>);
-
         expect(toJson(template)).toMatchSnapshot();
     });
 
