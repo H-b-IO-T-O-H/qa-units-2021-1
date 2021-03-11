@@ -1,3 +1,6 @@
+jest.mock("../utils/getDate");
+
+/* eslint-disable import/first */
 import React from "react";
 import {getDate} from "../utils/getDate";
 import {configure, shallow} from "enzyme";
@@ -7,7 +10,6 @@ import Order from "./Order.js";
 import {fakeOrders} from "../data/fakeOrders";
 
 configure({adapter: new Adapter()});
-jest.mock("../utils/getDate");
 
 describe("Order.js", () => {
     beforeAll(() => {
@@ -15,8 +17,9 @@ describe("Order.js", () => {
     });
 
     afterAll(() => {
-        jest.clearAllMocks();
+        getDate.mockClear();
     });
+
 
     test("default render", () => {
         const template = shallow(<Order order={fakeOrders[0]}/>);
