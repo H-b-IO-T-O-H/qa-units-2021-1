@@ -84,32 +84,31 @@ describe("sortOrders", () => {
         const orders = [
             {
                 id: 1,
-                date: 3 * day,
-            },
-            {
-                id: 2,
                 date: day,
             },
             {
-                id: 3,
+                id: 2,
                 date: 2 * day,
+            },
+            {
+                id: 3,
+                date: 3 * day,
             }
         ];
-        const raiseComparator = (a, b) => a.date > b.date;
-        sortOrders(orders, raiseComparator)
+        sortOrders(orders, sortByDate)
         expect(orders).toEqual(
             [
                 {
-                    id: 2,
-                    date: day,
+                    id: 3,
+                    date: 3 * day,
                 },
                 {
-                    id: 3,
+                    id: 2,
                     date: 2 * day,
                 },
                 {
                     id: 1,
-                    date: 3 * day,
+                    date: day,
                 }
             ]
         );
