@@ -78,4 +78,40 @@ describe("sortOrders", () => {
     //     console.log(ordersId)
     //     expect(ordersId).toEqual([1, 2, 3, 4])
     // });
+
+    test("correct answer", () => {
+        const day = 24 * 3600 * 1000;
+        const orders = [
+            {
+                id: 1,
+                date: 3 * day,
+            },
+            {
+                id: 2,
+                date: day,
+            },
+            {
+                id: 3,
+                date: 2 * day,
+            }
+        ];
+        const raiseComparator = (a, b) => a.date > b.date;
+        sortOrders(orders, raiseComparator)
+        expect(orders).toEqual(
+            [
+                {
+                    id: 2,
+                    date: day,
+                },
+                {
+                    id: 3,
+                    date: 2 * day,
+                },
+                {
+                    id: 1,
+                    date: 3 * day,
+                }
+            ]
+        );
+    });
 });
