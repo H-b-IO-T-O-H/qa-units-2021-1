@@ -71,80 +71,11 @@ describe("sortOrders", () => {
         expect(mockSortFunc).not.toHaveBeenCalled()
     });
 
-    // test("correct answer", () => {
-    //     const raiseComparator = (a, b) => a > b;
-    //     const ordersId = [2, 3, 1, 4]
-    //     sortOrders(ordersId, raiseComparator)
-    //     console.log(ordersId)
-    //     expect(ordersId).toEqual([1, 2, 3, 4])
-    // });
-
-    test("correct answer with sortByDate", () => {
-        const day = 24 * 3600 * 1000;
-        const orders = [
-            {
-                id: 1,
-                date: day,
-            },
-            {
-                id: 2,
-                date: 2 * day,
-            },
-            {
-                id: 3,
-                date: 3 * day,
-            }
-        ];
-        sortOrders(orders, sortByDate)
-        expect(orders).toEqual(
-            [
-                {
-                    id: 3,
-                    date: 3 * day,
-                },
-                {
-                    id: 2,
-                    date: 2 * day,
-                },
-                {
-                    id: 1,
-                    date: day,
-                }
-            ]
-        );
-    });
-
-    test("correct answer with sortByItemCount", () => {
-        const orders = [
-            {
-                id: 1,
-                items: ["1", "2"],
-            },
-            {
-                id: 2,
-                items: ["1"],
-            },
-            {
-                id: 3,
-                items: ["1", "2", "3"],
-            }
-        ];
-        sortOrders(orders, sortByItemCount)
-        expect(orders).toEqual(
-            [
-                {
-                    id: 2,
-                    items: ["1"],
-                },
-                {
-                    id: 1,
-                    items: ["1", "2"],
-                },
-                {
-                    id: 3,
-                    items: ["1", "2", "3"],
-                }
-            ]
-        );
+    test("correct answer", () => {
+        const raiseComparator = (a, b) => a > b;
+        const ordersId = [2, 3, 1, 4]
+        sortOrders(ordersId, raiseComparator)
+        console.log(ordersId)
+        expect(ordersId).toEqual([1, 2, 3, 4])
     });
 });

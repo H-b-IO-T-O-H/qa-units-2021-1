@@ -62,5 +62,3 @@ exports[`Order.js render with no items 1`] = `
   />
 </div>
 `;
-
-exports[`Order.js render without props 1`] = `""`;

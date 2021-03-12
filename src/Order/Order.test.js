@@ -22,19 +22,18 @@ describe("Order.js", () => {
 
     test("default render", () => {
         const template = shallow(<Order order={fakeOrders[0]}/>);
-
         expect(template).toMatchSnapshot();
-        //expect(getDate).toHaveBeenCalledWith(fakeOrders[0].date);
     });
 
     test("default render mock call", () => {
-        shallow(<Order order={fakeOrders[0]}/>);
+        shallow(<Order order={fakeOrders[0]}/>)
         expect(getDate).toHaveBeenCalledWith(fakeOrders[0].date);
     });
 
-    test("render without props", () => {
-        const template = shallow(<Order/>);
-        expect(template).toMatchSnapshot();
+    test("render with empty props", () => {
+        const order = new Order({});
+        const result = order.render()
+        expect(result).toBeNull();
     });
 
     test("render with no items", () => {
