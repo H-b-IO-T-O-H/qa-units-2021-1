@@ -41,8 +41,6 @@ exports[`Order.js default render 1`] = `
 </div>
 `;
 
-exports[`Order.js render with empty item 1`] = `""`;
-
 exports[`Order.js render with no items 1`] = `
 <div
   className="Order"

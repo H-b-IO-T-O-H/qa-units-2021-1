@@ -24,13 +24,13 @@ describe("Order.js", () => {
     test("default render", () => {
         const template = shallow(<Order order={fakeOrders[0]}/>);
 
-        expect(toJson(template)).toMatchSnapshot();
+        expect(template).toMatchSnapshot();
         expect(getDate).toHaveBeenCalledWith(fakeOrders[0].date);
     });
 
     test("render without props", () => {
         const template = shallow(<Order/>);
-        expect(toJson(template)).toMatchSnapshot();
+        expect(template).toMatchSnapshot();
     });
 
     test("render with no items", () => {
@@ -40,16 +40,19 @@ describe("Order.js", () => {
         }
 
         const template = shallow(<Order order={order}/>);
-        expect(toJson(template)).toMatchSnapshot();
+        expect(template).toMatchSnapshot();
     });
 
-    test("render with empty item", () => {
-        const order = {
-            date: 1,
-            shop: ''
+    test("null render with empty item", () => {
+        const props = {
+            order: {
+                shop: null,
+                date: "",
+            }
         };
 
-        const template = shallow(<Order order={order}/>);
-        expect(toJson(template)).toMatchSnapshot();
+        const order = new Order(props);
+        const result = order.render()
+        expect(result).toBeNull();
     });
 });
