@@ -79,7 +79,7 @@ describe("sortOrders", () => {
     //     expect(ordersId).toEqual([1, 2, 3, 4])
     // });
 
-    test("correct answer", () => {
+    test("correct answer with sortByDate", () => {
         const day = 24 * 3600 * 1000;
         const orders = [
             {
@@ -109,6 +109,40 @@ describe("sortOrders", () => {
                 {
                     id: 1,
                     date: day,
+                }
+            ]
+        );
+    });
+
+    test("correct answer with sortByItemCount", () => {
+        const orders = [
+            {
+                id: 1,
+                items: ["1", "2"],
+            },
+            {
+                id: 2,
+                items: ["1"],
+            },
+            {
+                id: 3,
+                items: ["1", "2", "3"],
+            }
+        ];
+        sortOrders(orders, sortByItemCount)
+        expect(orders).toEqual(
+            [
+                {
+                    id: 2,
+                    items: ["1"],
+                },
+                {
+                    id: 1,
+                    items: ["1", "2"],
+                },
+                {
+                    id: 3,
+                    items: ["1", "2", "3"],
                 }
             ]
         );
