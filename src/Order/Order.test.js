@@ -4,7 +4,6 @@ jest.mock("../utils/getDate");
 import React from "react";
 import {getDate} from "../utils/getDate";
 import {configure, shallow} from "enzyme";
-import toJson from "enzyme-to-json";
 import Adapter from "enzyme-adapter-react-16";
 import Order from "./Order.js";
 import {fakeOrders} from "../data/fakeOrders";
@@ -25,6 +24,11 @@ describe("Order.js", () => {
         const template = shallow(<Order order={fakeOrders[0]}/>);
 
         expect(template).toMatchSnapshot();
+        //expect(getDate).toHaveBeenCalledWith(fakeOrders[0].date);
+    });
+
+    test("default render mock call", () => {
+        shallow(<Order order={fakeOrders[0]}/>);
         expect(getDate).toHaveBeenCalledWith(fakeOrders[0].date);
     });
 
